@@ -53,7 +53,6 @@ app.setHandler({
     FactIntent() {
         this.tell(facts[Math.floor(Math.random()*facts.length)]);
         this.toIntent('MoreIntent');
-        
     },
 
     FactState: {
