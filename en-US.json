@@ -1,0 +1,76 @@
+{
+	"invocation": "Jobot",
+	"intents": [
+		{
+			"name": "helpintent",
+			"phrases": [
+				"Was kannst du mir über Johan erzählen",
+				"Hilfe",
+				"welche fragen kannst du mir beantworten"
+			]
+		
+		},
+		
+		{	"name": "Werbichintent",
+			"phrases": [
+				"Wer ist Johan",
+				"wer ist Johan Trieloff",
+				"erzähl mir was über Johan",
+				"erzähl mir was über Johan Trieloff"
+				
+			]
+		},
+
+		{
+			"name": "zufaelligefaktenintent",
+			"phrases": [
+				"zufaelliger fakt",
+				"sage mir einen Fakt über Johan",
+				"sage mir ein Fakt"
+				
+
+				
+			]
+		}
+	],
+	"alexa": {
+		"interactionModel": {
+			"languageModel": {
+				"intents": [
+					{
+						"name": "AMAZON.CancelIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.HelpIntent",
+						"samples": []
+					},
+					{
+						"name": "AMAZON.StopIntent",
+						"samples": []
+					}
+				]
+			}
+		}
+	},
+	"dialogflow": {
+		"intents": [
+			{
+				"name": "Default Fallback Intent",
+				"auto": true,
+				"webhookUsed": true,
+				"fallbackIntent": true
+			},
+			{
+				"name": "Default Welcome Intent",
+				"auto": true,
+				"webhookUsed": true,
+				"events": [
+					{
+						"name": "WELCOME"
+					}
+				]
+			}
+		]
+	}
+}
