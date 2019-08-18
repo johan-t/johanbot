@@ -19,10 +19,16 @@ app.use(
     new FileDb()
 );
 
-const facts = [
-    'Johan is cool',
-    'Johan is nice',
-    'Johan knows JavaScript'
+var facts = [
+    "Johan kann JavaScript",
+    "Er beherscht Python",
+    "Johan kann sehr gut Englisch",
+    "Er ist Klassensprecher seid der ersten Klasse",
+    "Johan ist nett",
+    "Johan ist Teamfähig",
+    "Johan schreibt man mit einem N.",
+    "Er ließt sehr gerne Bücher"
+    
 ]
 
 // ------------------------------------------------------------------
@@ -31,43 +37,26 @@ const facts = [
 
 app.setHandler({
     LAUNCH() {
-        this.$speech.addText('Do you want to learn about Johan?');
-        this.$reprompt.addText('Please answer with yes or no.');
-
-        this.followUpState('FactState')
-            .ask(this.$speech, this.$reprompt);
-    },
-
-    HelloWorldIntent() {
-        this.ask('Hallo ich bin Alexa', 'Please tell me your name.');
-    },
-
-    MyNameIsIntent() {
-        this.tell('Hey ' + this.$inputs.name.value + ', great to meet you!');
-    },
-
-    MoreIntent() {
-        this.ask('Do you want to know more?');
-    },
-
-    FactIntent() {
-        this.tell(facts[Math.floor(Math.random()*facts.length)]);
-        this.toIntent('MoreIntent');
-    },
-
-    FactState: {
-
-        YesIntent() {
-           this.tell(facts[Math.floor(Math.random()*facts.length)]);
-        },
-
-        NoIntent() {
-           this.toIntent('END')
-        },
+        this.$speech.addText('Willst du über Johan lernen?');
+        this.$reprompt.addText('Bitte antworte mit Ja oder Nein.');
     },
 
     END() {
         this.tell('See ya later, alligator!')
+    },
+
+    helpintent() {
+        this.tell("Du kannst mich fragen, wer Johan ist, oder nach einem zufälligem Fakt über ihn fragen.")
+
+    },
+
+    Werbichintent() {
+        this.tell("Johan Trieloff ist ein 14 Jähriger Junge, der seit zwei Jahren das Bertha von Suttner Gymnasium besucht und auf der Suche nach einer Praktikumsstelle für sein Betriebspraktikum vom elften November 2019 bis zum zweiundzwanzigsten November 2019 ist.")
+    },
+
+    zufaelligefaktenintent() {
+        var ri = Math.floor(Math.random() * facts.length);
+        this.tell(facts[ri])
     }
 
 });

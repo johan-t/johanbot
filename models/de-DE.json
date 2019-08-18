@@ -1,43 +1,36 @@
 {
-	"invocation": "my test app",
+	"invocation": "Jobot",
 	"intents": [
 		{
-			"name": "HelloWorldIntent",
+			"name": "helpintent",
 			"phrases": [
-				"hello",
-				"say hello",
-				"say hello world"
+				"Was kannst du mir über Johan erzählen",
+				"Hilfe",
+				"welche fragen kannst du mir beantworten"
+			]
+		
+		},
+		
+		{	"name": "Werbichintent",
+			"phrases": [
+				"Wer ist Johan",
+				"wer ist Johan Trieloff",
+				"erzähl mir was über Johan",
+				"erzähl mir was über Johan Trieloff"
+				
 			]
 		},
+
 		{
-			"name": "MyNameIsIntent",
+			"name": "zufaelligefaktenintent",
 			"phrases": [
-				"{name}",
-				"my name is {name}",
-				"i am {name}",
-				"you can call me {name}"
-			],
-			"inputs": [
-				{
-					"name": "name",
-					"type": {
-						"alexa": "AMAZON.US_FIRST_NAME",
-						"dialogflow": "@sys.given-name"
-					}
-				}
+				"zufaelliger fakt",
+				"sage mir einen Fakt über Johan",
+				"sage mir ein Fakt"
+				
+
+				
 			]
-		},
-		{
-			"name": "FactIntent",
-			"phrases":["Tell me about Johan"]
-		},
-		{
-			"name": "YesIntent",
-			"phrases":["yes"]
-		},
-		{
-			"name": "NoIntent",
-			"phrases":["no"]
 		}
 	],
 	"alexa": {
